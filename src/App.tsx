@@ -1,5 +1,6 @@
-import React, { MouseEvent } from "react";
+import React /*, {MouseEvent}*/ from "react";
 import "./App.css";
+import { Button } from "./components/Button";
 import { CarType, FastCar } from "./method_MAP/FastCar";
 import { NewComponent, StudentType } from "./method_MAP/NewComponent";
 import { Body } from "./site/Body";
@@ -35,16 +36,28 @@ function App() {
   //console.log("Hello I'am Ivan");
   //};
 
-  const onclickHandler = (name: string) => {
+  /*const onclickHandler = (name: string) => {
     console.log(name);
-  };
+  };*/
 
-  const foo1 = () => {
+  /* const foo1 = () => {
     console.log(100200);
   };
 
   const foo2 = (point: number) => {
     console.log(point);
+  };*/
+
+  const Button1Foo = (subscriber: string, age: number, adres: string) => {
+    console.log(subscriber, age, adres);
+  };
+
+  const Button2Foo = (subscriber: string) => {
+    console.log(subscriber);
+  };
+
+  const Button3Foo = () => {
+    console.log("Im stupid button");
   };
 
   return (
@@ -69,7 +82,8 @@ function App() {
         >
           MyYouTubeChannel-1
         </button>*/}
-        <button
+
+        {/*<button
           onClick={(event: MouseEvent<HTMLButtonElement>) =>
             onclickHandler("VASYA")
           }
@@ -82,21 +96,25 @@ function App() {
           }
         >
           MyYouTubeChannel-2
-        </button>
-        <button
-          onClick={(event: MouseEvent<HTMLButtonElement>) =>
-            onclickHandler("some info")
-          }
-        >
-          MyYouTubeChannel-3
-        </button>
+        </button>*/}
 
-        <button onClick={foo1}>1</button>
+        {/*<button onClick={foo1}>1</button>
         <button
           onClick={(event: MouseEvent<HTMLButtonElement>) => foo2(100200)}
         >
           2
-        </button>
+        </button>*/}
+
+        <Button
+          name="MyYouTubeChannel-1"
+          callBack={() => Button1Foo("Im Vasy", 21, "live in Minsk")}
+        />
+        <Button
+          name="MyYouTubeChannel-2"
+          callBack={() => Button2Foo("Im Ivan")}
+        />
+
+        <Button name="Stupid Button" callBack={Button3Foo} />
       </div>
     </>
   );
