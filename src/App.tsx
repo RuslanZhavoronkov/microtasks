@@ -1,4 +1,4 @@
-import React, { useState /*, {MouseEvent}*/ } from "react";
+import React, { useState /* , {MouseEvent}*/ } from "react";
 import "./App.css";
 //import { Button } from "./components/Button";
 //import { CarType, FastCar } from "./method_MAP/FastCar";
@@ -63,7 +63,7 @@ function App() {
   //useState
 
   // let a = 1;
-  let [a, setA] = useState(1);
+  /*let [a, setA] = useState(1);
   const onClickHandler = () => {
     setA(++a);
     console.log(a);
@@ -71,7 +71,22 @@ function App() {
 
   const onClickHandlernull = () => {
     setA((a = 0));
-  };
+  };*/
+
+  const [money, setMoney] = useState([
+    { banknote: "dollar", nominal: 100, number: " a1234567890" },
+    { banknote: "dollar", nominal: 50, number: " z1234567890" },
+    { banknote: "ruble", nominal: 100, number: " w1234567890" },
+    { banknote: "dollar", nominal: 100, number: " e1234567890" },
+    { banknote: "dollar", nominal: 50, number: " c1234567890" },
+    { banknote: "ruble", nominal: 100, number: " r1234567890" },
+    { banknote: "dollar", nominal: 50, number: " x1234567890" },
+    { banknote: "ruble", nominal: 50, number: " v1234567890" },
+  ]);
+
+  let currentMoney = money.filter(
+    (filtredMoney, index) => filtredMoney.banknote === "ruble"
+  );
 
   return (
     /*<>
@@ -132,11 +147,27 @@ function App() {
     </>*/
 
     //useState
-    <div>
+    /*<div>
       <h1>{a}</h1>
       <button onClick={onClickHandler}>number</button>
       <button onClick={onClickHandlernull}>0</button>
-    </div>
+    </div>*/
+    <>
+      <ul>
+        {currentMoney.map((objectFromMoneyArr, index) => {
+          return (
+            <li key={index}>
+              <span>{objectFromMoneyArr.banknote}</span>
+              <span>{objectFromMoneyArr.nominal}</span>
+              <span>{objectFromMoneyArr.number}</span>
+            </li>
+          );
+        })}
+      </ul>
+      <button>all</button>
+      <button>ruble</button>
+      <button>dollar</button>
+    </>
   );
 }
 
