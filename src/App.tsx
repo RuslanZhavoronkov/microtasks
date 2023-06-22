@@ -1,14 +1,14 @@
-import React /*, {MouseEvent}*/ from "react";
+import React, { useState /*, {MouseEvent}*/ } from "react";
 import "./App.css";
-import { Button } from "./components/Button";
-import { CarType, FastCar } from "./method_MAP/FastCar";
-import { NewComponent, StudentType } from "./method_MAP/NewComponent";
-import { Body } from "./site/Body";
+//import { Button } from "./components/Button";
+//import { CarType, FastCar } from "./method_MAP/FastCar";
+//import { NewComponent, StudentType } from "./method_MAP/NewComponent";
+/*import { Body } from "./site/Body";
 import { Footer } from "./site/Footer";
-import { Header } from "./site/Header";
+import { Header } from "./site/Header";*/
 
 function App() {
-  let student: Array<StudentType> = [
+  /*let student: Array<StudentType> = [
     { id: 1, name: "James", age: 8 },
     { id: 2, name: "Robert", age: 18 },
     { id: 3, name: "John", age: 28 },
@@ -26,7 +26,7 @@ function App() {
     { manufacturer: "BMW", model: "m5cs" },
     { manufacturer: "Mercedes", model: "e63s" },
     { manufacturer: "Audi", model: "rs6" },
-  ];
+  ];*/
 
   //const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
   //console.log("Hello I'am Vasia");
@@ -48,7 +48,7 @@ function App() {
     console.log(point);
   };*/
 
-  const Button1Foo = (subscriber: string, age: number, adres: string) => {
+  /*const Button1Foo = (subscriber: string, age: number, adres: string) => {
     console.log(subscriber, age, adres);
   };
 
@@ -58,10 +58,23 @@ function App() {
 
   const Button3Foo = () => {
     console.log("Im stupid button");
+ };*/
+
+  //useState
+
+  // let a = 1;
+  let [a, setA] = useState(1);
+  const onClickHandler = () => {
+    setA(++a);
+    console.log(a);
+  };
+
+  const onClickHandlernull = () => {
+    setA((a = 0));
   };
 
   return (
-    <>
+    /*<>
       <div>
         <Header title="NEW BODY" />;
         <Body titleForBody="New Body" />
@@ -74,16 +87,16 @@ function App() {
         <FastCar bestcar={topCars} />
       </div>
 
-      <div>
+  <div>
         {/*<button
           onClick={(event) => {
             console.log("Hello");
           }}
         >
           MyYouTubeChannel-1
-        </button>*/}
+        </button>*/
 
-        {/*<button
+    /*<button
           onClick={(event: MouseEvent<HTMLButtonElement>) =>
             onclickHandler("VASYA")
           }
@@ -96,16 +109,16 @@ function App() {
           }
         >
           MyYouTubeChannel-2
-        </button>*/}
+        </button>*/
 
-        {/*<button onClick={foo1}>1</button>
+    /*<button onClick={foo1}>1</button>
         <button
           onClick={(event: MouseEvent<HTMLButtonElement>) => foo2(100200)}
         >
           2
-        </button>*/}
+        </button>*/
 
-        <Button
+    /* <Button
           name="MyYouTubeChannel-1"
           callBack={() => Button1Foo("Im Vasy", 21, "live in Minsk")}
         />
@@ -116,7 +129,14 @@ function App() {
 
         <Button name="Stupid Button" callBack={Button3Foo} />
       </div>
-    </>
+    </>*/
+
+    //useState
+    <div>
+      <h1>{a}</h1>
+      <button onClick={onClickHandler}>number</button>
+      <button onClick={onClickHandlernull}>0</button>
+    </div>
   );
 }
 
