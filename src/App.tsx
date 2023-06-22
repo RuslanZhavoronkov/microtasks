@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import "./App.css";
 import { CarType, FastCar } from "./method_MAP/FastCar";
 import { NewComponent, StudentType } from "./method_MAP/NewComponent";
@@ -27,6 +27,26 @@ function App() {
     { manufacturer: "Audi", model: "rs6" },
   ];
 
+  //const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
+  //console.log("Hello I'am Vasia");
+  //};
+
+  //const mySecondSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
+  //console.log("Hello I'am Ivan");
+  //};
+
+  const onclickHandler = (name: string) => {
+    console.log(name);
+  };
+
+  const foo1 = () => {
+    console.log(100200);
+  };
+
+  const foo2 = (point: number) => {
+    console.log(point);
+  };
+
   return (
     <>
       <div>
@@ -39,6 +59,44 @@ function App() {
       </div>
       <div>
         <FastCar bestcar={topCars} />
+      </div>
+
+      <div>
+        {/*<button
+          onClick={(event) => {
+            console.log("Hello");
+          }}
+        >
+          MyYouTubeChannel-1
+        </button>*/}
+        <button
+          onClick={(event: MouseEvent<HTMLButtonElement>) =>
+            onclickHandler("VASYA")
+          }
+        >
+          MyYouTubeChannel-1
+        </button>
+        <button
+          onClick={(event: MouseEvent<HTMLButtonElement>) =>
+            onclickHandler("IVAN")
+          }
+        >
+          MyYouTubeChannel-2
+        </button>
+        <button
+          onClick={(event: MouseEvent<HTMLButtonElement>) =>
+            onclickHandler("some info")
+          }
+        >
+          MyYouTubeChannel-3
+        </button>
+
+        <button onClick={foo1}>1</button>
+        <button
+          onClick={(event: MouseEvent<HTMLButtonElement>) => foo2(100200)}
+        >
+          2
+        </button>
       </div>
     </>
   );
