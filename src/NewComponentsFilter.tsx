@@ -1,7 +1,7 @@
 import React from "react";
-import { FilterType } from "./App";
+//import { FilterType } from "./App";
 
-type objectType = {
+{/*type objectType = {
   banknote: string;
   nominal: number;
   number: string;
@@ -52,3 +52,4 @@ export const NewComponentFilter = (props: NewComPropsType) => {
     </>
   );
 };
+*/}
